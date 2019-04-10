@@ -19,13 +19,13 @@ import { Device } from 'react-device-breakpoints'
 
 const breakpoints = [{
     name: 'isDesktop',
-    query: window.matchMedia('min-width: 1024px')
+    query: window.matchMedia('(min-width: 1024px)')
 },{
     name: 'isTablet',
-    query: window.matchMedia('(max-width: 1023px) and (min-width: '768px')')
+    query: window.matchMedia('(max-width: 1023px) and (min-width: 768px)')
 },{
     name: 'isMobile',
-    query: window.matchMedia('max-width: 767px')
+    query: window.matchMedia('(max-width: 767px)')
 }]
 
 const App = () => {
@@ -81,13 +81,13 @@ import Store from './store.js'
 
 const breakpoints = [{
     name: 'isDesktop',
-    query: window.matchMedia('min-width: 1024px')
+    query: window.matchMedia('(min-width: 1024px)')
 },{
     name: 'isTablet',
-    query: window.matchMedia('(max-width: 1023px) and (min-width: '768px')')
+    query: window.matchMedia('(max-width: 1023px) and (min-width: 768px)')
 },{
     name: 'isMobile',
-    query: window.matchMedia('max-width: 767px')
+    query: window.matchMedia('(max-width: 767px)')
 }]
 
 const App = () => (

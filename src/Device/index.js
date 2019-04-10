@@ -35,7 +35,7 @@ Device.propTypes = {
     breakpoints: PropTypes.arrayOf(
       PropTypes.shape({
         name: PropTypes.string.isRequired,
-        query: PropTypes.string.isRequired
+        query: PropTypes.object.isRequired
       })
     ).isRequired
 }

@@ -142,3 +142,38 @@ const Store = createStore(
 
 export default Store
 ```
+
+## The Device Object
+React Device Breakpoints returns a device object as follows:
+```
+{
+    [breakpointName]: Boolean
+}
+```
+
+For example:
+```
+    {
+        isDesktop: true,
+        isTablet: false,
+        isMobile: false
+    }
+```
+
+It also includes a pre-built-in option for touch devices base of the following user agent test `/Mobi|Tablet|iPad|iPhone|Android/.test(window.navigator.userAgent)`
+```
+{
+    isTouchDevice: false
+}
+```
+
+## Props
+- `breakpoints`: an array of breakpoints as described in the examples above. This is required for both redux and non-redux versions.
+- `onChange`: an onChange function which accepts one param. This is only required on the non-redux version.
+
+N.B. The onChange functions gets passed the changing breakpoint object as a param:
+```
+{
+    breakpointName: true (Bool)
+}
+```

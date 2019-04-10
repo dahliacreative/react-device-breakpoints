@@ -7,7 +7,7 @@ const breakpointChange = (onChange, bp) => ({ matches }) => {
   })
 }
 
-const Devices = ({ onChange, breakpoints, children }) => {
+const Device = ({ onChange, breakpoints, children }) => {
   useEffect(() => {
     onChange(breakpoints.reduce((acc, bp) => ({
         ...acc,
@@ -30,7 +30,7 @@ const Devices = ({ onChange, breakpoints, children }) => {
   return <>{children}</>
 }
 
-Devices.propTypes = {
+Device.propTypes = {
     onChange: PropTypes.func,
     breakpoints: PropTypes.arrayOf(
       PropTypes.shape({
@@ -40,4 +40,4 @@ Devices.propTypes = {
     ).isRequired
 }
 
-export default Devices
+export default Device

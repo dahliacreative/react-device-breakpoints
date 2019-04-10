@@ -1,0 +1,39 @@
+{
+  "name": "react-device-breakpoints",
+  "version": "0.0.1",
+  "description": "Component for managing matchMedia queries in react.",
+  "main": "lib/index.js",
+  "scripts": {
+    "build": "npx babel src --out-dir lib",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "@dahliacreative",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dahliacreative/react-device-breakpoints.git"
+  },
+  "keywords": [
+    "react",
+    "device",
+    "matchMedia",
+    "breakpoints",
+    "media queries",
+    "responsive",
+    "javascript",
+    "es6"
+  ],
+  "devDependencies": {
+    "@babel/cli": "^7.4.3",
+    "@babel/core": "^7.4.3",
+    "@babel/preset-env": "^7.4.3",
+    "prop-types": "^15.7.2",
+    "react": "^16.8.6",
+    "react-redux": "^7.0.1"
+  },
+  "peerDependencies": {
+    "prop-types": "^15.7.2",
+    "react": "^16.8.6",
+    "react-redux": "^7.0.1"
+  }
+}

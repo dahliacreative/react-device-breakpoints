@@ -21,7 +21,10 @@
     "media queries",
     "responsive",
     "javascript",
-    "es6"
+    "es6",
+    "redux",
+    "hooks",
+    "useEffect"
   ],
   "devDependencies": {
     "@babel/cli": "^7.4.3",

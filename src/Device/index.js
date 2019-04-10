@@ -32,10 +32,12 @@ const Devices = ({ onChange, breakpoints, children }) => {
 
 Devices.propTypes = {
     onChange: PropTypes.func,
-    breakpoints: PropTypes.shape({
+    breakpoints: PropTypes.arrayOf(
+      PropTypes.shape({
         name: PropTypes.string.isRequired,
         query: PropTypes.string.isRequired
-    }).isRequired
+      })
+    ).isRequired
 }
 
 export default Devices

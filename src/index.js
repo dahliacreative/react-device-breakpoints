@@ -1,7 +1,11 @@
-import React, { createContext, useEffect, useState } from 'react'
+import React, { createContext, useEffect, useState, useContext } from 'react'
 import PropTypes from 'prop-types'
 
 const Breakpoints = createContext()
+
+const useBreakpoints = () => useContext(Breakpoints)
+
+const Media = Breakpoints.Consumer
 
 const breakpointChange = (updateState, bp) => ({ matches }) => {
     updateState({
@@ -48,5 +52,6 @@ BreakpointsProvider.propTypes = {
 
 export {
     BreakpointsProvider,
-    Breakpoints
+    useBreakpoints,
+    Media
 }

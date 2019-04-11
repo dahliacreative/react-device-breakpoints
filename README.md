@@ -10,7 +10,6 @@ yarn add react-device-breakpoints
 ```
 
 ## Usage
-
 App.js
 ```
 import React from 'react'
@@ -35,14 +34,14 @@ const App = () => (
 
 export default App
 ```
-
+### With Hooks
 MyComponent.js
 ```
 import React, { useContext } from 'react'
-import { Breakpoints } from 'react-device-breakpoints'
+import { useBreakpoints } from 'react-device-breakpoints'
 
 const MyComponent = () => {
-    const device = useContext(Breakpoints)
+    const device = useBreakpoints()
     return (
         <div>
             {device.isDesktop &&
@@ -58,6 +57,37 @@ const MyComponent = () => {
                 <h2>Touch Device</h2>
             }
         </div>
+    )
+}
+
+export default MyComponent
+```
+### With Consumer
+MyComponent.js
+```
+import React, { useContext } from 'react'
+import { Media } from 'react-device-breakpoints'
+
+const MyComponent = () => {
+    return (
+        <Media>
+            {device => (
+                <div>
+                    {device.isDesktop &&
+                        <h1>Desktop</h1>
+                    }
+                    {device.isTablet &&
+                        <h1>Tablet</h1>
+                    }
+                    {device.isMobile &&
+                        <h1>Mobile</h1>
+                    }
+                    {device.isTouchDevice &&
+                        <h2>Touch Device</h2>
+                    }
+                </div>
+            )}
+        </Media>
     )
 }
 

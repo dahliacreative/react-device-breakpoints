@@ -1,6 +1,6 @@
 {
   "name": "react-device-breakpoints",
-  "version": "0.0.2",
+  "version": "0.1.0",
   "description": "Component for managing matchMedia queries in react.",
   "main": "lib/index.js",
   "scripts": {

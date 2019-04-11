@@ -29,17 +29,20 @@ const breakpoints = [{
 }]
 
 const App = () => {
+    const [activeBreakpoint, updateBreakpoint] = useState()
     const [device, updateDevice] = useState({})
-    const deviceChange = (breakpoint) => {
+    useEffect(() => {
         updateDevice({
             ...device,
-            ...breakpoint
+            ...activeBreakpoint
         })
-    }
+    }, [activeBreakpoint])
     return (
         <div>
-            <Device breakpoints={breakpoints} onChange={deviceChange}/>
-            <MyComponent device={device}/>
+            <Device breakpoints={breakpoints} onChange={bp => {
+                updateBreakpoint(bp)
+            }}/>
+            <MyComponent device={device}>
         </div>
     )
 }

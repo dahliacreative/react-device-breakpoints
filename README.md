@@ -10,77 +10,11 @@ yarn add react-device-breakpoints
 ```
 
 ## Usage
-### Without Redux
-
-App.js
-```
-import React, { useState } from 'react'
-import { Device } from 'react-device-breakpoints'
-
-const breakpoints = [{
-    name: 'isDesktop',
-    query: window.matchMedia('(min-width: 1024px)')
-},{
-    name: 'isTablet',
-    query: window.matchMedia('(max-width: 1023px) and (min-width: 768px)')
-},{
-    name: 'isMobile',
-    query: window.matchMedia('(max-width: 767px)')
-}]
-
-const App = () => {
-    const [activeBreakpoint, updateBreakpoint] = useState()
-    const [device, updateDevice] = useState({})
-    useEffect(() => {
-        updateDevice({
-            ...device,
-            ...activeBreakpoint
-        })
-    }, [activeBreakpoint])
-    return (
-        <div>
-            <Device breakpoints={breakpoints} onChange={bp => {
-                updateBreakpoint(bp)
-            }}/>
-            <MyComponent device={device}>
-        </div>
-    )
-}
-
-export default App
-```
-
-MyComponent.js
-```
-import React from 'react'
-
-const MyComponent = ({device}) => (
-    <div>
-        {device.isDesktop &&
-            <h1>Desktop</h1>
-        }
-        {device.isTablet &&
-            <h1>Tablet</h1>
-        }
-        {device.isMobile &&
-            <h1>Mobile</h1>
-        }
-        {device.isTouchDevice &&
-            <h2>Touch Device</h2>
-        }
-    </div>
-)
-
-export default MyComponent
-```
-
-### With Redux
 
 App.js
 ```
 import React from 'react'
-import { ReduxDevice as Device } from 'react-device-breakpoints'
-import Store from './store.js'
+import { BreakpointsProvider } from 'react-device-breakpoints'
 
 const breakpoints = [{
     name: 'isDesktop',
@@ -94,10 +28,9 @@ const breakpoints = [{
 }]
 
 const App = () => (
-    <Provider store={Store}>
-        <Device breakpoints={breakpoints}/>
+    <BreakpointsProvider breakpoints={breakpoints}>
         <MyComponent/>
-    </Provider>
+    </BreakpointsProvider>
 )
 
 export default App
@@ -105,45 +38,30 @@ export default App
 
 MyComponent.js
 ```
-import React from 'react'
-import { Connect } from 'react-redux'
+import React, { useContext } from 'react'
+import { Breakpoints } from 'react-device-breakpoints'
 
-const MyComponent = ({device}) => (
-    <div>
-        {device.isDesktop &&
-            <h1>Desktop</h1>
-        }
-        {device.isTablet &&
-            <h1>Tablet</h1>
-        }
-        {device.isMobile &&
-            <h1>Mobile</h1>
-        }
-        {device.isTouchDevice &&
-            <h2>Touch Device</h2>
-        }
-    </div>
-)
+const MyComponent = () => {
+    const device = useContext(Breakpoints)
+    return (
+        <div>
+            {device.isDesktop &&
+                <h1>Desktop</h1>
+            }
+            {device.isTablet &&
+                <h1>Tablet</h1>
+            }
+            {device.isMobile &&
+                <h1>Mobile</h1>
+            }
+            {device.isTouchDevice &&
+                <h2>Touch Device</h2>
+            }
+        </div>
+    )
+}
 
-mapStateToProps = state => ({
-    device: state.device
-})
-export default connect(mapStateToProps)(MyComponent)
-```
-
-Store.js
-```
-import { createStore, combineReducers } from 'redux'
-import { DeviceReducer as device } from 'react-device-breakpoints'
-
-const Store = createStore(
-    combineReducers({
-        ...myReducers,
-        device
-    })
-)
-
-export default Store
+export default MyComponent
 ```
 
 ## The Device Object
@@ -167,16 +85,5 @@ It also includes a pre-built-in option for touch devices base of the following u
 ```
 {
     isTouchDevice: false
-}
-```
-
-## Props
-- `breakpoints`: an array of breakpoints as described in the examples above. This is required for both redux and non-redux versions.
-- `onChange`: an onChange function which accepts one param. This is only required on the non-redux version.
-
-N.B. The onChange functions gets passed the changing breakpoint object as a param:
-```
-{
-    breakpointName: true (Bool)
 }
 ```

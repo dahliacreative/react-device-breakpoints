@@ -1,6 +1,6 @@
 {
   "name": "react-device-breakpoints",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Component for managing matchMedia queries in react.",
   "main": "lib/index.js",
   "scripts": {
@@ -34,13 +34,11 @@
     "@babel/preset-react": "^7.0.0",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
-    "react-dom": "^16.8.6",
-    "react-redux": "^7.0.1"
+    "react-dom": "^16.8.6"
   },
   "peerDependencies": {
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
-    "react-redux": "^7.0.1",
     "react-dom": "^16.8.6"
   }
 }

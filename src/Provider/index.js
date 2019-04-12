@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import Context from './context'
+import { Provider } from '../Context'
 
 const createListener = (onChange, bp) => ({ matches }) => {
     onChange({
@@ -7,7 +7,7 @@ const createListener = (onChange, bp) => ({ matches }) => {
     })
 }
 
-const BreakpointsProvider = ({children, ...props}) => {
+const Breakpoints = ({children, ...props}) => {
 
     const breakpoints = Object.entries(props).map((key, query) => ({
         key,
@@ -44,7 +44,7 @@ const BreakpointsProvider = ({children, ...props}) => {
         }
     }, [])
 
-    return <Context.Provider value={device}>{children}</Context.Provider>
+    return <Provider value={device}>{children}</Provider>
 }
 
-export default BreakpointsProvider
+export default Breakpoints

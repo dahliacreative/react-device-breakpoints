@@ -1,9 +1,9 @@
-import BreakpointsProvider from './provider'
-import Media from './consumer'
-import useBreakpoints from './useBreakpoints'
+import Breakpoints from './Provider'
+import { Consumer as Media} from './Context'
+import useBreakpoints from './Hooks'
 
 export {
-  BreakpointsProvider,
+  Breakpoints,
   Media,
   useBreakpoints
 }

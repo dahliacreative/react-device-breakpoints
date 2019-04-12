@@ -1,5 +1,9 @@
 # React Device Breakpoints
 
+[![Build Status](https://travis-ci.com/dahliacreative/react-device-breakpoints.svg?branch=master)](https://travis-ci.com/dahliacreative/react-device-breakpoints)
+[![Maintainability](https://api.codeclimate.com/v1/badges/aa452b20e9e300e33dca/maintainability)](https://codeclimate.com/github/dahliacreative/react-device-breakpoints/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/aa452b20e9e300e33dca/test_coverage)](https://codeclimate.com/github/dahliacreative/react-device-breakpoints/test_coverage)
+
 ## Installation
 ```
 npm i react-device-breakpoints --save

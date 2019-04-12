@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Provider /> removes listeners when unmounting 1`] = `ReactWrapper {}`;
+
+exports[`<Provider /> renders given children 1`] = `ReactWrapper {}`;
+
+exports[`<Provider /> renders provider with given queries 1`] = `ReactWrapper {}`;
+
+exports[`<Provider /> renders provider with given queries 2`] = `ReactWrapper {}`;

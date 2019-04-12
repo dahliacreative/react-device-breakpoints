@@ -19,19 +19,14 @@ App.js
 import React from 'react'
 import { BreakpointsProvider } from 'react-device-breakpoints'
 
-const breakpoints = [{
-    name: 'isDesktop',
-    query: window.matchMedia('(min-width: 1024px)')
-},{
-    name: 'isTablet',
-    query: window.matchMedia('(max-width: 1023px) and (min-width: 768px)')
-},{
-    name: 'isMobile',
-    query: window.matchMedia('(max-width: 767px)')
-}]
+const breakpoints = {
+    isDesktop: '(min-width: 1024px)',
+    isTablet: '(max-width: 1023px) and (min-width: 768px)',
+    isMobile: '(max-width: 767px)'
+}
 
 const App = () => (
-    <BreakpointsProvider breakpoints={breakpoints}>
+    <BreakpointsProvider {...breakpoints}>
         <MyComponent/>
     </BreakpointsProvider>
 )

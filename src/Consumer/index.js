@@ -5,7 +5,9 @@ const generateComponents = device => {
     const components = {}
     Object.entries(device).forEach(([key, matches]) => {
         components[key] = ({ children }) => {
-            return matches ? children : null
+            return <>
+                {matches && children}
+            </>
         }
     })
     return components

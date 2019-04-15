@@ -5,9 +5,9 @@ import Provider from '../Provider'
 import Consumer from './'
 
 const breakpoints = {
-    Desktop: '(min-width: 1024px)',
-    Tablet: '(max-width: 1023px) and (min-width: 768px)',
-    Mobile: '(max-width: 767px)'
+    isDesktop: '(min-width: 1024px)',
+    isTablet: '(max-width: 1023px) and (min-width: 768px)',
+    isMobile: '(max-width: 767px)'
 }
 
 describe('<Consumer />', () => {
@@ -18,30 +18,30 @@ describe('<Consumer />', () => {
                     {(device, Device) => {
                         return (
                             <div>
-                                {/* {device.Desktop &&
+                                {device.isDesktop &&
                                     <h1>Desktop</h1>
                                 }
-                                {device.Tablet &&
+                                {device.isTablet &&
                                     <h1>Tablet</h1>
                                 }
-                                {device.Mobile &&
+                                {device.isMobile &&
                                     <h1>Mobile</h1>
                                 }
-                                {device.TouchDevice &&
+                                {device.isTouchDevice &&
                                     <h2>Touch Device</h2>
                                 }
-                                <Device.Desktop>
+                                <Device.isDesktop>
                                     <h1>Desktop</h1>
-                                </Device.Desktop>
-                                <Device.Tablet>
+                                </Device.isDesktop>
+                                <Device.isTablet>
                                     <h1>Tablet</h1>
-                                </Device.Tablet>
-                                <Device.Mobile>
+                                </Device.isTablet>
+                                <Device.isMobile>
                                     <h1>Mobile</h1>
-                                </Device.Mobile>
-                                <Device.TouchDevice>
+                                </Device.isMobile>
+                                <Device.isTouchDevice>
                                     <h1>Touch Device</h1>
-                                </Device.TouchDevice> */}
+                                </Device.isTouchDevice>
                             </div>
                         )
                     }}

@@ -70,7 +70,7 @@ import { Media } from 'react-device-breakpoints'
 const MyComponent = () => {
     return (
         <Media>
-            {device => (
+            {(device, Media) => (
                 <div>
                     {device.isDesktop &&
                         <h1>Desktop</h1>
@@ -84,6 +84,18 @@ const MyComponent = () => {
                     {device.isTouchDevice &&
                         <h2>Touch Device</h2>
                     }
+                    <Media.isDesktop>
+                        <h1>Desktop</h1>
+                    </Media.isDesktop>
+                    <Media.isTablet>
+                        <h1>Tablet</h1>
+                    </Media.isTablet>
+                    <Media.isMobile>
+                        <h1>Mobile</h1>
+                    </Media.isMobile>
+                    <Media.isTouchDevice>
+                        <h1>Touch Device</h1>
+                    </Media.isTouchDevice>
                 </div>
             )}
         </Media>

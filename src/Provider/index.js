@@ -9,7 +9,7 @@ const createListener = (onChange, bp) => ({ matches }) => {
 
 const Breakpoints = ({children, ...props}) => {
 
-    const breakpoints = Object.entries(props).map((key, query) => ({
+    const breakpoints = Object.entries(props).map(([key, query]) => ({
         key,
         query: window.matchMedia(query)
     }))

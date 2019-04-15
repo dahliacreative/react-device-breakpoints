@@ -4,8 +4,8 @@ import useBreakpoints from './Hooks'
 import Context from './Context'
 
 export {
-  Breakpoints,
-  Media,
-  useBreakpoints,
-  Context
+    Breakpoints,
+    Media,
+    useBreakpoints,
+    Context
 }

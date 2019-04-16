@@ -17,7 +17,7 @@ yarn add react-device-breakpoints
 App.js
 ```
 import React from 'react'
-import { BreakpointsProvider } from 'react-device-breakpoints'
+import { Breakpoints } from 'react-device-breakpoints'
 
 const breakpoints = {
     isDesktop: '(min-width: 1024px)',
@@ -26,9 +26,9 @@ const breakpoints = {
 }
 
 const App = () => (
-    <BreakpointsProvider {...breakpoints}>
+    <Breakpoints {...breakpoints}>
         <MyComponent/>
-    </BreakpointsProvider>
+    </Breakpoints>
 )
 
 export default App

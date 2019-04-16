@@ -52,6 +52,7 @@
     },
     "jest": {
         "verbose": true,
+        "collectCoverageFrom": ["./src/**/*.js"],
         "testMatch": [
             "**/?(*.)+(spec|test).[jt]s?(x)"
         ],

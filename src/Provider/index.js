@@ -3,35 +3,32 @@ import { Provider } from '../Context'
 
 const createListener = (onChange, bp) => ({ matches }) => {
     onChange({
-        [bp.name]: matches
+        [bp.key]: matches
     })
 }
 
-const Breakpoints = ({children, ...props}) => {
-
-    const breakpoints = Object.entries(props).map(([key, query]) => ({
-        key,
-        query: window.matchMedia(query)
-    }))
-
-    const defaultState = breakpoints.reduce((acc, bp) => ({
+const BreakpointsProvider = ({children, breakpoints}) => {
+    const [activeBreakpoint, updateBreakpoint] = useState()
+    const [device, updateDevice] = useState(breakpoints.reduce((acc, bp) => ({
         ...acc,
         [bp.key]: bp.query.matches
     }), {
         isTouchDevice: /Mobi|Tablet|iPad|iPhone|Android/.test(window.navigator.userAgent)
-    })
-
-    const [device, updateDevice] = useState(defaultState)
+    }))
 
     const onChange = bp => {
-        updateDevice({
-            ...device,
-            ...bp
-        })
+        updateBreakpoint(bp)
     }
 
     useEffect(() => {
-        const listeners = breakpoints.map((bp, i) => {
+        updateDevice({
+            ...device,
+            ...activeBreakpoint
+        })
+    }, [activeBreakpoint])
+
+    useEffect(() => {
+        const listeners = breakpoints.map(bp => {
             const listener = createListener(onChange, bp)
             bp.query.addListener(listener)
             return listener
@@ -45,6 +42,17 @@ const Breakpoints = ({children, ...props}) => {
     }, [])
 
     return <Provider value={device}>{children}</Provider>
+}
+
+const Breakpoints = ({children, ...props}) => {
+    const [breakpoints, defineBreakpoints] = useState(null)
+    useEffect(() => {
+        defineBreakpoints(Object.entries(props).map(([key, query]) => ({
+            key,
+            query: window.matchMedia(query)
+        })))
+    },[])
+    return breakpoints ? <BreakpointsProvider breakpoints={breakpoints}>{children}</BreakpointsProvider> : null
 }
 
 export default Breakpoints

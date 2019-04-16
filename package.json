@@ -1,6 +1,6 @@
 {
     "name": "react-device-breakpoints",
-    "version": "2.0.2",
+    "version": "2.0.3",
     "description": "Component for managing matchMedia queries in react.",
     "main": "lib/index.js",
     "scripts": {
@@ -36,6 +36,7 @@
         "babel-eslint": "^9.0.0",
         "enzyme": "^3.9.0",
         "enzyme-adapter-react-16": "^1.12.1",
+        "enzyme-to-json": "^3.3.5",
         "eslint": "^5.16.0",
         "eslint-config-react-app": "^3.0.8",
         "eslint-plugin-flowtype": "^2.50.3",
@@ -53,12 +54,9 @@
     "jest": {
         "verbose": true,
         "collectCoverageFrom": ["./src/**/*.js"],
-        "testMatch": [
-            "**/?(*.)+(spec|test).[jt]s?(x)"
-        ],
-        "setupFiles": [
-            "./src/setupTests.js"
-        ]
+        "testMatch": ["**/?(*.)+(spec|test).[jt]s?(x)"],
+        "setupFiles": ["./src/setupTests.js"],
+        "snapshotSerializers": ["enzyme-to-json/serializer"]
     },
     "dependencies": {}
 }

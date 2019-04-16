@@ -1,3 +1,70 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Consumer /> returns a device object 1`] = `ReactWrapper {}`;
+exports[`<Consumer /> returns a device object 1`] = `
+<Breakpoints
+  isDesktop="(min-width: 1024px)"
+  isMobile="(max-width: 767px)"
+  isTablet="(max-width: 1023px) and (min-width: 768px)"
+>
+  <BreakpointsProvider
+    breakpoints={
+      Array [
+        Object {
+          "key": "isDesktop",
+          "query": Object {
+            "addListener": [Function],
+            "matches": true,
+            "removeListener": [Function],
+          },
+        },
+        Object {
+          "key": "isTablet",
+          "query": Object {
+            "addListener": [Function],
+            "matches": true,
+            "removeListener": [Function],
+          },
+        },
+        Object {
+          "key": "isMobile",
+          "query": Object {
+            "addListener": [Function],
+            "matches": true,
+            "removeListener": [Function],
+          },
+        },
+      ]
+    }
+  >
+    <Media>
+      <div>
+        <h1>
+          Desktop
+        </h1>
+        <h1>
+          Tablet
+        </h1>
+        <h1>
+          Mobile
+        </h1>
+        <Component>
+          <h1>
+            Desktop
+          </h1>
+        </Component>
+        <Component>
+          <h1>
+            Tablet
+          </h1>
+        </Component>
+        <Component>
+          <h1>
+            Mobile
+          </h1>
+        </Component>
+        <Component />
+      </div>
+    </Media>
+  </BreakpointsProvider>
+</Breakpoints>
+`;

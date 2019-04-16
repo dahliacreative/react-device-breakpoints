@@ -1,9 +1,71 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Provider /> removes listeners when unmounting 1`] = `ReactWrapper {}`;
+exports[`<Provider /> removes listeners when unmounting 1`] = `null`;
 
-exports[`<Provider /> renders given children 1`] = `ReactWrapper {}`;
+exports[`<Provider /> renders given children 1`] = `
+<Breakpoints>
+  <BreakpointsProvider
+    breakpoints={Array []}
+  >
+    <h1>
+      React Device Breakpoints FTW!
+    </h1>
+  </BreakpointsProvider>
+</Breakpoints>
+`;
 
-exports[`<Provider /> renders provider with given queries 1`] = `ReactWrapper {}`;
+exports[`<Provider /> renders provider with given queries 1`] = `
+<Breakpoints
+  isDesktop="(min-width: 1024px)"
+  isMobile="(max-width: 767px)"
+  isTablet="(max-width: 1023px) and (min-width: 768px)"
+>
+  <BreakpointsProvider
+    breakpoints={
+      Array [
+        Object {
+          "key": "isDesktop",
+          "query": Object {
+            "addListener": [Function],
+            "matches": true,
+            "removeListener": [Function],
+          },
+        },
+        Object {
+          "key": "isTablet",
+          "query": Object {
+            "addListener": [Function],
+            "matches": true,
+            "removeListener": [Function],
+          },
+        },
+        Object {
+          "key": "isMobile",
+          "query": Object {
+            "addListener": [Function],
+            "matches": true,
+            "removeListener": [Function],
+          },
+        },
+      ]
+    }
+  >
+    <h1>
+      React Device Breakpoints FTW!
+    </h1>
+    <Consumer>
+      <p>
+        {"isTouchDevice":false,"isDesktop":true,"isTablet":true,"isMobile":true}
+      </p>
+    </Consumer>
+  </BreakpointsProvider>
+</Breakpoints>
+`;
 
-exports[`<Provider /> renders provider with given queries 2`] = `ReactWrapper {}`;
+exports[`<Provider /> renders provider with given queries 2`] = `
+<Consumer>
+  <p>
+    {"isTouchDevice":false,"isDesktop":true,"isTablet":true,"isMobile":true}
+  </p>
+</Consumer>
+`;
